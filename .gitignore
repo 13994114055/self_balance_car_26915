@@ -1,0 +1,38 @@
+# Build directories
+build/
+cmake-build-*/
+
+# IDE
+.idea/
+.vscode/
+
+# CMake generated
+CMakeCache.txt
+CMakeFiles/
+cmake_install.cmake
+Makefile
+compile_commands.json
+
+# Compiled objects
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+*.axf
+*.lst
+*.crf
+*.d
+*.dep
+
+# STM32CubeMX generated
+.mxproject
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Temp
+*.swp
+*~
