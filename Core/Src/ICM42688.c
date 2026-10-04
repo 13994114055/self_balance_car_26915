@@ -37,12 +37,12 @@ static HAL_StatusTypeDef ICM42688_Trans(imu_t *imu) {
     imu->gyy_temp = imu->buffer_temp[8] <<8 | imu->buffer_temp[9];
     imu->gyz_temp = imu->buffer_temp[10] <<8 | imu->buffer_temp[11];
 
-    imu->acx = imu->acx_temp / imu->accel_sensitivity ;
-    imu->acy = imu->acy_temp / imu->accel_sensitivity ;
-    imu->acz = imu->acz_temp / imu->accel_sensitivity ;
-    imu->gyx = imu->gyx_temp / imu->gyro_sensitivity ;
-    imu->gyy = imu->gyy_temp / imu->gyro_sensitivity ;
-    imu->gyz = imu->gyz_temp / imu->gyro_sensitivity ;
+    imu->accle[0] = imu->acx_temp / imu->accel_sensitivity ;
+    imu->accle[1] = imu->acy_temp / imu->accel_sensitivity ;
+    imu->accle[2] = imu->acz_temp / imu->accel_sensitivity ;
+    imu->gyro[0] = imu->gyx_temp / imu->gyro_sensitivity ;
+    imu->gyro[1] = imu->gyy_temp / imu->gyro_sensitivity ;
+    imu->gyro[2] = imu->gyz_temp / imu->gyro_sensitivity ;
 
     return HAL_OK;
 }

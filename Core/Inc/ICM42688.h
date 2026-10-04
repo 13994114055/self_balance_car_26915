@@ -18,8 +18,8 @@ typedef struct {
     uint16_t cs_pin;
 
     int16_t acx_temp , acy_temp , acz_temp , gyx_temp , gyy_temp , gyz_temp;
-    float acx, acy, acz;         /* 加速度 (g)，X/Y/Z */
-    float gyx, gyy, gyz;         /* 角速度 (°/s)，X/Y/Z */
+    float accle[3];         /* 加速度 (g)，X/Y/Z */
+    float gyro[3];         /* 角速度 (°/s)，X/Y/Z */
 
     float accel_sensitivity;     /* 加速度灵敏度 = 32768/量程 (LSB/g) */
     float gyro_sensitivity;      /* 陀螺仪灵敏度 = 32768/量程 (LSB/dps) */
