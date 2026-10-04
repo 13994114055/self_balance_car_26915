@@ -13,9 +13,9 @@
  * @brief ICM42688 实例句柄：硬件绑定 + 数据 + 换算系数
  */
 typedef struct {
-    SPI_HandleTypeDef *hspi;     /* SPI 句柄（指向工程里的 hspi1） */
-    GPIO_TypeDef *cs_port;       /* CS 片选端口 */
-    uint16_t cs_pin;             /* CS 片选引脚 */
+    SPI_HandleTypeDef *hspi;
+    GPIO_TypeDef *cs_port;
+    uint16_t cs_pin;
 
     int16_t acx_temp , acy_temp , acz_temp , gyx_temp , gyy_temp , gyz_temp;
     float acx, acy, acz;         /* 加速度 (g)，X/Y/Z */
