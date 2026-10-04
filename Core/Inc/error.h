@@ -15,4 +15,4 @@ typedef enum {
 
 void error(ErrorCode_t errorCode) ;
 
-#endif //_ERROR_H
+#endif //__ERROR_H
