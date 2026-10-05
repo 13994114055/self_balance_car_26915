@@ -36,6 +36,7 @@ add_executable(${CMAKE_PROJECT_NAME}
         Core/Src/pid.c
         Core/Src/error.c
         Core/Src/ICM42688.c
+        Core/Src/MahonyAHRS.c
 )
 
 # Add STM32CubeMX generated sources
