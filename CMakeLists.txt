@@ -38,6 +38,7 @@ add_executable(${CMAKE_PROJECT_NAME}
         Core/Src/ICM42688.c
         Core/Src/MahonyAHRS.c
         Core/Src/DRV4950.c
+        Core/Src/balance_control.c
 )
 
 # Add STM32CubeMX generated sources
