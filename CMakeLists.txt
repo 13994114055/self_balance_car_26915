@@ -40,6 +40,8 @@ add_executable(${CMAKE_PROJECT_NAME}
         Core/Src/DRV4950.c
         Core/Src/balance_control.c
         Core/Src/encoder.c
+        Core/Src/oled.c
+        Core/Src/font.c
 )
 
 # Add STM32CubeMX generated sources
