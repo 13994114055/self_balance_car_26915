@@ -22,6 +22,9 @@ typedef struct {
     float speed_set , turn_set;
     float gyro_pitch_v;
     float left_duty , right_duty;
+    float pitch_target;
+    float turn_out;
+    float balance_out;
 } Balance_t;
 
 void Balance_Init(Balance_t *balance , BalanceParam_t *param);
