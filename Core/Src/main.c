@@ -32,6 +32,12 @@
 /* Private includes ----------------------------------------------------------*/
 /* USER CODE BEGIN Includes */
 
+#include "balance_control.h"
+#include "ICM42688.h"
+#include "encoder.h"
+#include "DRV4950.h"
+#include "MahonyAHRS.h"
+
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -52,6 +58,12 @@
 /* Private variables ---------------------------------------------------------*/
 
 /* USER CODE BEGIN PV */
+
+imu_t imu ;
+MahonyAHRS_t mahony ;
+Encoder_t encoder ;
+Motor_t motorL , motorR ;
+Balance_t balance ;
 
 /* USER CODE END PV */
 
@@ -108,6 +120,25 @@ int main(void)
   MX_USART2_UART_Init();
   MX_USB_PCD_Init();
   /* USER CODE BEGIN 2 */
+
+    imu.hspi = &hspi1;
+    imu.cs_port = GPIOA ;
+    imu.cs_pin = GPIO_PIN_4;
+    if (ICM42688_Init(&imu , 8 , 500) != HAL_OK) Error_Handler() ;
+
+    MahonyAHRS_Init(&mahony, 2.0f, 0.05f);
+
+    Encoder_Init(&encoder , &htim3 , &htim4) ;
+
+    Motor_Init(&motorL ,  &htim2 , TIM_CHANNEL_1 , TIM_CHANNEL_2 , Motor_Normal) ;
+    Motor_Init(&motorR ,  &htim2 , TIM_CHANNEL_4 , TIM_CHANNEL_3 , Motor_Normal);
+
+    BalanceParam_t param = {
+        .stand_kp = 0.0f, .stand_kd = 0.0f,
+        .speed_kp = 0.0f, .speed_ki = 0.0f,
+        .turn_kp  = 0.0f, .turn_kd  = 0.0f,
+    };
+    Balance_Init(&balance , &param);
 
   /* USER CODE END 2 */
 
